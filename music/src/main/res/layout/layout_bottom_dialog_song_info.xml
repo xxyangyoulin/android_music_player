@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_sheet_dialog_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_sheet_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:padding="@dimen/margin_10dp"
+        android:text="歌曲："
+        android:textColor="#7e7e7e"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_sheet_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:lineSpacingExtra="@dimen/text_size_16sp"
+        android:padding="@dimen/margin_10dp"
+        android:textSize="@dimen/text_size_14sp"
+        android:text="歌曲长度: \n"
+        android:textColor="@color/colorSheetText"
+        android:textStyle=""/>
+
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/margin_72dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_local_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_72dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+
+        <ImageView
+            android:id="@+id/iv_album"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_width="@dimen/margin_48dp"
+            android:layout_height="@dimen/margin_48dp"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/def_music_icon"/>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextPrimaryStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:maxLines="1"
+                android:textSize="15sp"
+                tools:text="同桌的你"/>
+
+            <TextView
+                android:id="@+id/tv_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="marquee"
+                android:maxLines="1"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                tools:text="刀郎"/>
+
+        </LinearLayout>
+
+        <!--<ImageView
+            android:id="@+id/iv_playing"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/margin_8dp"
+            android:src="@drawable/vol2"
+            android:visibility="visible"/>-->
+        <ProgressBar
+            android:id="@+id/iv_playing"
+            android:layout_width="40dp"
+            android:padding="@dimen/margin_8dp"
+            android:layout_height="40dp"
+            android:indeterminateDrawable="@drawable/vol2"
+            android:orientation="vertical">
+
+        </ProgressBar>
+        <include layout="@layout/layout_more"/>
+
+    </LinearLayout>
+</LinearLayout>

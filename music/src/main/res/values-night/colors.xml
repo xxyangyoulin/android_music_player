@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/dark_night_color</color>
+    <color name="colorPrimaryDark">@color/dark_night_color</color>
+    <color name="colorAccent">@color/dark_night_color</color>
+
+    <color name="window_background">#212121</color>
+    <color name="play_bar_background">#121212</color>
+
+    <color name="color_splash_bottom_bg">@color/black_bb</color>
+    <color name="colorSheetText">@color/white_aa</color>
+    <color name="color_sheet_dialog_bg">#2b2b2b</color>
+</resources>

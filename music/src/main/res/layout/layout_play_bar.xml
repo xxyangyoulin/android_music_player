@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/play_bar_height">
+
+    <LinearLayout
+        android:id="@+id/ll_play_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <!--android:background="@drawable/selector_play_bar_bg"-->
+
+        <ImageView
+            android:id="@+id/iv_bar_album_playing"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="7.5dp"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:id="@+id/ll_play_bar_title_artist"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingRight="@dimen/margin_4dp">
+
+            <TextView
+                android:id="@+id/tv_bar_title"
+                style="@style/TextPrimaryStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:maxLines="1"
+                android:text="@string/app_name"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_bar_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:maxLines="1"
+                android:text="oo Music"
+                android:textColor="@color/gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_bar_play"
+            android:layout_width="38dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:paddingRight="@dimen/margin_4dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/selector_play_bar_play_pause"/>
+
+        <ImageView
+            android:id="@+id/iv_bar_next"
+            android:layout_width="38dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:paddingLeft="@dimen/margin_4dp"
+            android:paddingRight="@dimen/margin_7dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/selector_play_bar_next"/>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_bar_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom"
+        android:progressDrawable="@drawable/bg_play_progress"/>
+</FrameLayout>

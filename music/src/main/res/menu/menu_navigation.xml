@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_set"
+        android:icon="@mipmap/ic_menu_settings"
+        android:title="@string/text_menu_set"/>
+    <item
+        android:id="@+id/action_night"
+        android:icon="@mipmap/ic_menu_night"
+        android:title="@string/text_menu_night"/>
+    <item
+        android:id="@+id/action_timer"
+        android:icon="@mipmap/ic_menu_timer"
+        android:title="@string/text_menu_timer"/>
+    <item
+        android:id="@+id/action_exit"
+        android:icon="@drawable/ic_action_exit_app"
+        android:title="@string/text_menu_exit"/>
+    <item
+        android:id="@+id/action_about"
+        android:icon="@mipmap/ic_menu_about"
+        android:title="@string/text_menu_about"/>
+</menu>

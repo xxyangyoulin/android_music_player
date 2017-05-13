@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_top_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_10dp"
+        android:visibility="visible">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="20dp"
+            android:background="@drawable/shape_top_list_title_bg"/>
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            style="@style/TextPrimaryStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_7dp"
+            android:text="主打榜单"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_top_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_10dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_header_list_pic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/def_music_icon"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_music1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:maxLines="1"
+                android:text="@string/text_loading"
+                android:textSize="@dimen/text_size_12sp"/>
+
+            <TextView
+                android:id="@+id/tv_music2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="marquee"
+                android:maxLines="1"
+                android:text="@string/text_loading"
+                android:textSize="@dimen/text_size_12sp"/>
+
+            <TextView
+                android:id="@+id/tv_music3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="marquee"
+                android:maxLines="1"
+                android:text="@string/text_loading"
+                android:textSize="@dimen/text_size_12sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="热歌榜"
+            android:visibility="gone"/>
+
+
+    </LinearLayout>
+</FrameLayout>

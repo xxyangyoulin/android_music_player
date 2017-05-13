@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_player_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:gravity="center_vertical"
+    android:paddingRight="@dimen/margin_16dp"
+    tools:showIn="@layout/fragment_player">
+
+
+    <ImageView
+        android:id="@+id/iv_toolbar_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_16dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_keyboard_arrow_down_white_24dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_play_bar_title_artist"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_16dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.mnnyang.starmusic.view.view.MaTextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:singleLine="true"
+            android:text="好音乐"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_20sp"/>
+
+        <com.mnnyang.starmusic.view.view.MaTextView
+            android:id="@+id/tv_toolbar_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:singleLine="true"
+            android:text="Good Music"
+            android:textColor="@color/white_aa"
+            android:textSize="@dimen/text_size_14sp"/>
+    </LinearLayout>
+
+</LinearLayout>

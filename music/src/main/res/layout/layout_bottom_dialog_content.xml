@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_sheet_dialog_bg"
+    android:orientation="vertical"
+    app:divider="@drawable/shape_divider_line"
+    app:dividerPadding="50dp"
+    app:showDividers="middle">
+
+    <TextView
+        android:id="@+id/tv_sheet_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:padding="@dimen/margin_10dp"
+        android:text="歌曲："
+        android:textColor="#7e7e7e"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_sheet_next_play"
+        style="@style/sheetStyle"
+        android:drawableLeft="@drawable/wyy_next_play"
+        android:text="下一首播放"
+        android:textStyle=""/>
+
+    <TextView
+        android:id="@+id/tv_sheet_share"
+        style="@style/sheetStyle"
+        android:drawableLeft="@drawable/wyy_share"
+        android:text="分享"/>
+
+    <TextView
+        android:id="@+id/tv_sheet_download"
+        style="@style/sheetStyle"
+        android:drawableLeft="@drawable/wyy_download"
+        android:text="@string/text_download"/>
+
+    <TextView
+        android:id="@+id/tv_sheet_artist"
+        style="@style/sheetStyle"
+        android:drawableLeft="@drawable/wyy_artist"
+        android:text="歌手："/>
+
+    <TextView
+        android:id="@+id/tv_sheet_album"
+        style="@style/sheetStyle"
+        android:drawableLeft="@drawable/wyy_album"
+        android:text="专辑："/>
+
+
+    <TextView
+        android:id="@+id/tv_sheet_bell"
+        style="@style/sheetStyle"
+        android:drawableLeft="@drawable/wyy_bell"
+        android:text="@string/text_set_bell"/>
+
+    <TextView
+        android:id="@+id/tv_sheet_info"
+        style="@style/sheetStyle"
+        android:drawableLeft="@drawable/wyy_info"
+        android:text="@string/text_song_info"/>
+
+    <TextView
+        android:id="@+id/tv_sheet_del"
+        style="@style/sheetStyle"
+        android:drawableLeft="@drawable/wyy_del"
+        android:text="@string/text_del"/>
+</android.support.v7.widget.LinearLayoutCompat>

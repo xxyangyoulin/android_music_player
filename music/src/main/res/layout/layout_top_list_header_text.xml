@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin_10dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_online">
+
+    <TextView
+        android:id="@+id/tv_header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_20sp"
+        tools:text="新歌榜"/>
+
+    <TextView
+        android:id="@+id/tv_header_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_2dp"
+        android:singleLine="true"
+        android:textColor="@color/white_aa"
+        android:textSize="@dimen/text_size_12sp"
+        tools:text="最近更新: 2017.3.23"/>
+
+    <TextView
+        android:id="@+id/tv_header_describe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:ellipsize="end"
+        android:textColor="@android:color/white"
+        android:textIsSelectable="true"
+        android:textSize="@dimen/text_size_12sp"
+        tools:text="新歌排行榜.."/>
+
+
+</LinearLayout>

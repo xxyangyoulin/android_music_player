@@ -1,0 +1,89 @@
+<resources>
+    <string name="version">v1.0</string>
+    <string name="app_name">星星音乐</string>
+    <string name="text_copyright">copyright 2017</string>
+    <string name="text_menu_set">功能设定</string>
+    <string name="toolbar_local_music">我的</string>
+    <string name="toolbar_find">发现</string>
+    <string name="text_menu_night">夜间模式</string>
+    <string name="text_menu_about">关于</string>
+    <string name="text_menu_timer">定时暂停播放</string>
+    <string name="default_artist">歌手未知</string>
+    <string name="text_menu_exit">退出应用</string>
+    <string name="text_loading">加载中...</string>
+    <string name="play_show_time">%1$s:%2$s</string>
+    <string name="text_network">网络</string>
+    <string name="text_using_mobile_play">2/3/4G网络播放</string>
+    <string name="text_using_mobile_play_key">using_mobile_play</string>
+    <string name="text_using_mobile_download">2/3/4G网络下载</string>
+    <string name="text_using_mobile_download_key">using_mobile_download</string>
+    <string name="text_preference">偏好</string>
+    <string name="text_auto_night">自动切换夜间模式</string>
+    <string name="text_auto_night_key">auto_night</string>
+    <string name="text_load_fail">加载失败...</string>
+    <string name="text_toast_load_fail">加载失败  检查下网络吧</string>
+    <string name="text_strive_loading">努力加载中...</string>
+    <string name="text_no_more">没有更多了</string>
+    <string name="text_load_more_fail">加载失败...</string>
+    <string name="text_query_hint">歌曲、歌手</string>
+    <string name="text_toolbar_search">搜索</string>
+    <string name="text_load_default_search_status_info">只差一个结束，却要从头开始..</string>
+    <string name="text_load_fail_and_check_network">加载失败，检查下网络吧..</string>
+    <string name="text_load_not_find_content">没有找到相关内容，换个试试..</string>
+    <string name="text_del">删除</string>
+    <string name="text_song_info">查看歌曲信息</string>
+    <string name="text_album">专辑:  </string>
+    <string name="text_set_bell">设置铃声</string>
+    <string name="text_download">下载</string>
+    <string name="sheet_title">歌曲：%1$s</string>
+    <string name="sheet_artist">歌手：%1$s</string>
+    <string name="sheet_album">专辑：%1$s</string>
+    <string name="sheet_info">文件名称：%1$s\n播放时长：%2$s\n文件大小：%3$s\n文件路径：%4$s</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_delete">删除</string>
+    <string name="del_success">删除成功</string>
+    <string name="translatin_name_album">album</string>
+
+    <string name="mode_single">单曲模式</string>
+    <string name="mode_shuffle">随机模式</string>
+    <string name="mode_loop">列表循环</string>
+    <string name="current_list_is_empty">当前播放列表没有歌曲</string>
+    <string name="text_no_song">没有发现相关歌曲</string>
+
+    <string-array name="top_list_title">
+        <item>主打榜单</item>
+        <item>百度热歌榜</item>
+        <item>百度新歌榜</item>
+        <item>分类榜单</item>
+        <item>华语金曲榜</item>
+        <item>欧美金曲榜</item>
+        <item>影视金曲榜</item>
+        <item>情歌对唱榜</item>
+        <item>网络歌曲榜</item>
+        <item>经典老歌榜</item>
+        <item>摇滚榜</item>
+        <item>媒体榜单</item>
+        <item>KTV热歌榜</item>
+        <item>Billboard</item>
+        <item>Hito中文榜</item>
+        <item>叱咤歌曲榜</item>
+    </string-array>
+    <string-array name="top_list_type">
+        <item>#</item>
+        <item>2</item>
+        <item>1</item>
+        <item>#</item>
+        <item>20</item>
+        <item>21</item>
+        <item>24</item>
+        <item>23</item>
+        <item>25</item>
+        <item>22</item>
+        <item>11</item>
+        <item>#</item>
+        <item>6</item>
+        <item>8</item>
+        <item>18</item>
+        <item>7</item>
+    </string-array>
+</resources>

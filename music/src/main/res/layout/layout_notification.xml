@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_notify_root"
+    android:layout_width="match_parent"
+    android:layout_height="62dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tools:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_notify_album"
+        android:layout_width="@dimen/margin_62dp"
+        android:layout_height="@dimen/margin_62dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_round"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="@dimen/margin_62dp"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_notify_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@color/black_bb"
+            android:textSize="@dimen/text_size_16sp"
+            tools:text="家乡的路"/>
+
+        <TextView
+            android:id="@+id/tv_notify_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_1dp"
+            android:singleLine="true"
+            android:textColor="@color/black_bb"
+            android:textSize="@dimen/text_size_12sp"
+            tools:text="阿雯"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_play_or_pause"
+        android:layout_width="@dimen/margin_40dp"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:padding="@dimen/margin_4dp"
+        android:src="@drawable/selector_play_bar_play_pause"/>
+
+    <ImageView
+        android:id="@+id/iv_next"
+        android:layout_width="@dimen/margin_40dp"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:padding="@dimen/margin_4dp"
+        android:src="@drawable/selector_play_bar_next"/>
+
+    <ImageView
+        android:id="@+id/iv_exit"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/margin_16dp"
+        android:clickable="true"
+        android:padding="@dimen/margin_4dp"
+        android:src="@drawable/ic_action_close"/>
+</LinearLayout>
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_notify_root"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/margin_62dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tools:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_notify_album"
+        android:layout_width="@dimen/margin_62dp"
+        android:layout_height="@dimen/margin_62dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_round"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="@dimen/margin_62dp"
+        android:layout_marginLeft="@dimen/margin_8dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_notify_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@color/black_bb"
+            android:textSize="@dimen/text_size_16sp"
+            tools:text="家乡的路"/>
+
+        <TextView
+            android:id="@+id/tv_notify_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_2dp"
+            android:singleLine="true"
+            android:textColor="@color/black_bb"
+            android:textSize="@dimen/text_size_12sp"
+            tools:text="阿雯"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_play_or_pause"
+        android:layout_width="@dimen/margin_40dp"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:padding="@dimen/margin_4dp"
+        android:src="@drawable/selector_play_bar_play_pause"/>
+
+    <ImageView
+        android:id="@+id/iv_next"
+        android:layout_width="@dimen/margin_40dp"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:padding="@dimen/margin_4dp"
+        android:src="@drawable/selector_play_bar_next"/>
+
+    <ImageView
+        android:id="@+id/iv_exit"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/margin_16dp"
+        android:clickable="true"
+        android:padding="@dimen/margin_4dp"
+        android:src="@drawable/ic_action_close"/>
+</LinearLayout>
+-->

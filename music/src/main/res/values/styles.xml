@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- 溢出菜单图标颜色-->
+        <item name="colorControlNormal">@android:color/white</item>
+
+    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme">
+        <item name="android:windowBackground">@color/light_bg_color</item>
+    </style>
+
+    <style name="About" parent="AppTheme">
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorPrimaryDark">@color/purple</item>
+        <item name="colorAccent">@color/purple</item>
+    </style>
+
+    <style name="SplashTheme" parent="BaseAppTheme">
+        <!--<item name="android:windowBackground">@color/dark_red</item>-->
+    </style>
+
+
+    <style name="AppTheme.Search" parent="BaseAppTheme">
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <style name="TextPrimaryStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="sheetStyle">
+        <item name="android:clickable">true</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/margin_7dp</item>
+        <item name="android:paddingLeft">@dimen/margin_10dp</item>
+        <item name="android:paddingTop">@dimen/margin_7dp</item>
+        <item name="android:drawablePadding">@dimen/margin_10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/colorSheetText</item>
+        <item name="android:singleLine">true</item>
+    </style>
+</resources>

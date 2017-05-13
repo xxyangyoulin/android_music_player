@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/text_preference">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/text_auto_night_key"
+            android:title="@string/text_auto_night"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/text_network">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/text_using_mobile_play_key"
+            android:title="@string/text_using_mobile_play"/>
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/text_using_mobile_download_key"
+            android:title="@string/text_using_mobile_download"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
