@@ -1,4 +1,4 @@
-package com.mnnyang.starmusic.interfaces;
+package com.mnnyang.starmusic.util.rely;
 
 import android.content.Context;
 import android.graphics.Bitmap;

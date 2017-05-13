@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.mnnyang.starmusic.R;
 import com.mnnyang.starmusic.bean.SearchMusic;
-import com.mnnyang.starmusic.helper.StatusHelper;
+import com.mnnyang.starmusic.util.helper.StatusHelper;
 import com.mnnyang.starmusic.util.binding.BindLayout;
 import com.mnnyang.starmusic.util.binding.BindView;
 import com.mnnyang.starmusic.util.general.LogUtils;

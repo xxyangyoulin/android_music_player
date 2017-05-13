@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentTransaction;
@@ -25,32 +26,35 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.mnnyang.starmusic.R;
+import com.mnnyang.starmusic.adapter.HomeAdapter;
+import com.mnnyang.starmusic.api.PlayMode;
 import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.Music;
-import com.mnnyang.starmusic.service.PlayService;
-import com.mnnyang.starmusic.service.PlayerListener;
-import com.mnnyang.starmusic.util.SystemUtils;
-import com.mnnyang.starmusic.util.binding.BindLayout;
-import com.mnnyang.starmusic.util.binding.BindView;
-import com.mnnyang.starmusic.util.general.LogUtils;
-import com.mnnyang.starmusic.util.general.ScreenUtils;
-import com.mnnyang.starmusic.util.image.BitmapLoader;
-import com.mnnyang.starmusic.util.image.ImageResizer;
-import com.mnnyang.starmusic.adapter.HomeAdapter;
 import com.mnnyang.starmusic.fragment.AlbumFragment;
 import com.mnnyang.starmusic.fragment.ArtistFragment;
 import com.mnnyang.starmusic.fragment.LocalFragment;
 import com.mnnyang.starmusic.fragment.OnlineFragment;
 import com.mnnyang.starmusic.fragment.PlayerFragment;
 import com.mnnyang.starmusic.interfaces.BaseActivity;
+import com.mnnyang.starmusic.service.PlayService;
+import com.mnnyang.starmusic.service.PlayerListener;
+import com.mnnyang.starmusic.util.SystemUtils;
+import com.mnnyang.starmusic.util.binding.BindLayout;
+import com.mnnyang.starmusic.util.binding.BindView;
+import com.mnnyang.starmusic.util.general.LogUtils;
+import com.mnnyang.starmusic.util.general.Preferences;
+import com.mnnyang.starmusic.util.general.ScreenUtils;
+import com.mnnyang.starmusic.util.image.BitmapLoader;
+import com.mnnyang.starmusic.util.image.ImageResizer;
 import com.mnnyang.starmusic.view.view.PlayBarState;
+
+import static com.mnnyang.starmusic.api.Constants.KEY_PLAY_MDOE;
 
 /**
  *
  */
 @BindLayout(R.layout.activity_main)
-public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener,
-        View.OnClickListener, PlayerListener,
+public class MainActivity extends BaseActivity implements View.OnClickListener, PlayerListener,
         NavigationView.OnNavigationItemSelectedListener, PlayBarState {
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -82,6 +86,9 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     TextView tvBarArtist;
     @BindView(R.id.pb_bar_progress_bar)
     ProgressBar pbBarProgress;
+
+    @BindView(R.id.fab_shuffle)
+    FloatingActionButton fabShuffle;
 
     private LocalFragment localFragment;
     private OnlineFragment onlineFragment;
@@ -138,10 +145,25 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         drawerLayout.addDrawerListener(drawerListener);
         Cache.getPlayService().setPlayerListener(this);
         navigationView.setNavigationItemSelectedListener(this);
-        viewPager.setOnPageChangeListener(this);
+        fabShuffle.setOnClickListener(this);
         ivBarPlay.setOnClickListener(this);
         ivBarNext.setOnClickListener(this);
         llPlayBar.setOnClickListener(this);
+        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                switch (position) {
+                    case 1:
+                        fabShuffle.show();
+                        break;
+                    case 0:
+                    default:
+                        fabShuffle.hide();
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -224,18 +246,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         }
     };
 
-    @Override
-    public void onPageSelected(int position) {
-        switch (position) {
-            case 0:
-                break;
-            case 1:
-                break;
-            default:
-                break;
-        }
-    }
-
 
     @Override
     public void onClick(View v) {
@@ -249,7 +259,24 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             case R.id.iv_bar_next:
                 next();
                 break;
+            case R.id.fab_shuffle:
+                startShufflePlay();
         }
+    }
+
+    /**
+     * 1. 修改播放模式为随机
+     * 2. 播放下一首歌曲
+     */
+    private void startShufflePlay() {
+        setShuffleMode();
+        Cache.getPlayService().next();
+    }
+
+    private void setShuffleMode() {
+        PlayMode mode = PlayMode.SHUFFLE;
+        Preferences.putInt(KEY_PLAY_MDOE, mode.value());
+
     }
 
 
@@ -319,18 +346,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     private void next() {
         Cache.getPlayService().next();
     }
-
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
 
     @Override
     public void onStartPlay(Music currentMusic, int currentPlayingPosition) {

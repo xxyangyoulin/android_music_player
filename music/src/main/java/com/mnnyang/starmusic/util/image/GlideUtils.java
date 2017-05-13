@@ -4,7 +4,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.mnnyang.starmusic.app.Cache;
-import com.mnnyang.starmusic.interfaces.BlurBitmapTransformation;
+import com.mnnyang.starmusic.util.rely.BlurBitmapTransformation;
 
 /**
  * Created by mnnyang on 17-4-19.

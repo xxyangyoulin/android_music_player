@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_play_bar_root"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/play_bar_height">
+    android:layout_height="@dimen/play_bar_height"
+    android:background="@color/play_bar_background"
+    android:elevation="5dp"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/ll_play_bar"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="match_parent"
         android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:gravity="center_vertical"
@@ -16,22 +20,20 @@
 
         <ImageView
             android:id="@+id/iv_bar_album_playing"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="@dimen/margin_48dp"
+            android:layout_height="@dimen/margin_48dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="7.5dp"
             android:scaleType="centerCrop"/>
 
         <LinearLayout
             android:id="@+id/ll_play_bar_title_artist"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/margin_8dp"
             android:layout_weight="1"
             android:clickable="false"
             android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingRight="@dimen/margin_4dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_bar_title"
@@ -54,25 +56,27 @@
                 android:textSize="12sp"/>
         </LinearLayout>
 
+        <!--TODO 添加5.0以下-->
         <ImageView
             android:id="@+id/iv_bar_play"
-            android:layout_width="38dp"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/margin_48dp"
+            android:layout_height="@dimen/margin_48dp"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:paddingLeft="@dimen/margin_4dp"
-            android:paddingRight="@dimen/margin_4dp"
+            android:layout_marginRight="@dimen/margin_16dp"
+            android:padding="@dimen/margin_8dp"
             android:scaleType="centerInside"
             android:src="@drawable/selector_play_bar_play_pause"/>
 
         <ImageView
             android:id="@+id/iv_bar_next"
-            android:layout_width="38dp"
-            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:layout_width="@dimen/margin_48dp"
+            android:layout_height="@dimen/margin_48dp"
             android:background="?android:attr/selectableItemBackground"
+
             android:clickable="true"
-            android:paddingLeft="@dimen/margin_4dp"
-            android:paddingRight="@dimen/margin_7dp"
+            android:padding="@dimen/margin_8dp"
             android:scaleType="centerInside"
             android:src="@drawable/selector_play_bar_next"/>
     </LinearLayout>
@@ -81,7 +85,6 @@
         android:id="@+id/pb_bar_progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_gravity="bottom"
+        android:layout_height="@dimen/progress_bar_height"
         android:progressDrawable="@drawable/bg_play_progress"/>
 </FrameLayout>

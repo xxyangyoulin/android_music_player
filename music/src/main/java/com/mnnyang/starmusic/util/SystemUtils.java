@@ -20,7 +20,7 @@ import com.mnnyang.starmusic.R;
 import com.mnnyang.starmusic.api.Constants;
 import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.Music;
-import com.mnnyang.starmusic.helper.DialogHelper;
+import com.mnnyang.starmusic.util.helper.DialogHelper;
 import com.mnnyang.starmusic.service.PlayService;
 import com.mnnyang.starmusic.util.general.LogUtils;
 import com.mnnyang.starmusic.util.general.Preferences;

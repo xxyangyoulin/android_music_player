@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.mnnyang.starmusic.R;
 import com.mnnyang.starmusic.api.Constants;
 import com.mnnyang.starmusic.app.Cache;
-import com.mnnyang.starmusic.helper.StatusHelper;
+import com.mnnyang.starmusic.util.helper.StatusHelper;
 import com.mnnyang.starmusic.util.binding.BindView;
 import com.mnnyang.starmusic.activity.AlbumActivity;
 import com.mnnyang.starmusic.adapter.AlbumAdater;

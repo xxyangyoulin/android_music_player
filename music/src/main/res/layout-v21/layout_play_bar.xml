@@ -12,7 +12,7 @@
         android:id="@+id/ll_play_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -63,12 +63,14 @@
             android:layout_height="@dimen/margin_48dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:clickable="true"
+            android:layout_marginRight="@dimen/margin_16dp"
             android:padding="@dimen/margin_8dp"
             android:scaleType="centerInside"
             android:src="@drawable/selector_play_bar_play_pause"/>
 
         <ImageView
             android:id="@+id/iv_bar_next"
+            android:visibility="gone"
             android:layout_width="@dimen/margin_48dp"
             android:layout_height="@dimen/margin_48dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"

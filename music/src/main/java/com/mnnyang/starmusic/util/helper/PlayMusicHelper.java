@@ -1,4 +1,4 @@
-package com.mnnyang.starmusic.helper;
+package com.mnnyang.starmusic.util.helper;
 
 import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.Music;

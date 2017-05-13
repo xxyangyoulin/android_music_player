@@ -26,7 +26,7 @@ import com.mnnyang.starmusic.adapter.RecyclerBaseAdapter;
 import com.mnnyang.starmusic.api.Constants;
 import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.Music;
-import com.mnnyang.starmusic.helper.StatusHelper;
+import com.mnnyang.starmusic.util.helper.StatusHelper;
 import com.mnnyang.starmusic.util.binding.BindLayout;
 import com.mnnyang.starmusic.util.binding.BindView;
 import com.mnnyang.starmusic.util.general.ScreenUtils;

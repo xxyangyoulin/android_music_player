@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.mnnyang.starmusic.R;
 import com.mnnyang.starmusic.bean.SearchMusic;
-import com.mnnyang.starmusic.helper.PlayMusicHelper;
+import com.mnnyang.starmusic.util.helper.PlayMusicHelper;
 import com.mnnyang.starmusic.util.general.ToastUtils;
 
 import java.util.List;

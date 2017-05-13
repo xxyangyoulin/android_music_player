@@ -1,4 +1,4 @@
-package com.mnnyang.starmusic.helper;
+package com.mnnyang.starmusic.util.helper;
 
 import android.app.Activity;
 import android.content.ContentUris;
