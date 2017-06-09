@@ -30,6 +30,4 @@ public class ArtistAdater extends MoreAdater<String> {
         holder.setText(R.id.tv_title, artist);
         holder.setText(R.id.tv_second_title, musicCount + " 首歌曲");
     }
-
-
 }

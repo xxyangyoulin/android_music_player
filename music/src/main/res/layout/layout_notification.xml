@@ -15,7 +15,7 @@
         android:layout_width="@dimen/margin_62dp"
         android:layout_height="@dimen/margin_62dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:src="@mipmap/ic_launcher"/>
 
     <LinearLayout
         android:layout_width="0dp"

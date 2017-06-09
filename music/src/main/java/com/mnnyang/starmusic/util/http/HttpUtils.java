@@ -6,6 +6,7 @@ import com.mnnyang.starmusic.bean.PlaySongInfo;
 import com.mnnyang.starmusic.bean.SearchMusic;
 import com.mnnyang.starmusic.bean.TopList;
 import com.mnnyang.starmusic.util.general.FileUtils;
+import com.mnnyang.starmusic.util.general.LogUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.FileCallBack;
 
@@ -128,6 +129,47 @@ public class HttpUtils {
             @Override
             public void onResponse(File response, int id) {
                 httpCallBack.onSuccess(response);
+            }
+        });
+    }
+
+    /**
+     * 下载音乐
+     */
+    public static void downMusic(String musicLink, String musicDir, String musicName, final HttpCallback<File> httpCallback){
+        OkHttpUtils.get()
+                .url(musicLink)
+                .build().execute(new FileCallBack(musicDir, musicName) {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                httpCallback.onFail(e);
+            }
+
+            @Override
+            public void onResponse(File response, int id) {
+                httpCallback.onSuccess(response);
+            }
+        });
+    }
+
+    public static void downMusicById(String  musicId , final HttpCallback<File> httpCallback){
+        final String musicDir = FileUtils.DOWNLOAD_PATH;
+
+        getPlaySong(musicId, new HttpCallback<PlaySongInfo>() {
+            @Override
+            public void onSuccess(PlaySongInfo info) {
+                if (info ==null || info.getBitrate()==null) {
+                    LogUtils.e(this, "downMusicById() onSuccess is null");
+                    return;
+                }
+                String musicName = info.getSonginfo().getTitle()+".mp3";
+
+                downMusic(info.getBitrate().getFile_link(), musicDir, musicName, httpCallback);
+            }
+
+            @Override
+            public void onFail(Exception e) {
+                httpCallback.onFail(e);
             }
         });
     }

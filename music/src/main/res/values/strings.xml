@@ -49,6 +49,7 @@
     <string name="mode_loop">列表循环</string>
     <string name="current_list_is_empty">当前播放列表没有歌曲</string>
     <string name="text_no_song">没有发现相关歌曲</string>
+    <string name="about_str">　它不是人群中的嘈杂的声音，它不是马路上，轮胎摩擦地面那刺耳的尖锐的声音也不是林中流水的声音，它是灵魂深处发出的声音，它是思想碰撞出的声音，</string>
 
     <string-array name="top_list_title">
         <item>主打榜单</item>

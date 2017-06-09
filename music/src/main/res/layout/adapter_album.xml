@@ -20,8 +20,8 @@
                 android:id="@+id/iv_album"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
+                android:background="@color/gray_66"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_logo_round"
                 android:transitionName="@string/translatin_name_album"/>
 
             <LinearLayout

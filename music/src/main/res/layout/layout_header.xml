@@ -11,6 +11,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:src="@drawable/img_drawlayout_header"
             android:background="@color/colorPrimary"
             android:scaleType="centerCrop"/>
     </LinearLayout>

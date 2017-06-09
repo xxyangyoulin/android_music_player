@@ -3,15 +3,15 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_set"
-        android:icon="@mipmap/ic_menu_settings"
+        android:icon="@drawable/ic_settings_white_24dp"
         android:title="@string/text_menu_set"/>
     <item
         android:id="@+id/action_night"
-        android:icon="@mipmap/ic_menu_night"
+        android:icon="@drawable/ic_brightness_medium_white_24dp"
         android:title="@string/text_menu_night"/>
     <item
         android:id="@+id/action_timer"
-        android:icon="@mipmap/ic_menu_timer"
+        android:icon="@drawable/ic_timer_white_24dp"
         android:title="@string/text_menu_timer"/>
     <item
         android:id="@+id/action_exit"
@@ -19,6 +19,6 @@
         android:title="@string/text_menu_exit"/>
     <item
         android:id="@+id/action_about"
-        android:icon="@mipmap/ic_menu_about"
+        android:icon="@drawable/ic_info_white_24dp"
         android:title="@string/text_menu_about"/>
 </menu>

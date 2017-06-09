@@ -10,7 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.mnnyang.starmusic.view.view.BottomDialog;
+import com.mnnyang.starmusic.util.general.BottomDialog;
 
 /**
  * 对话框工具

@@ -5,9 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -46,13 +44,11 @@ import com.mnnyang.starmusic.util.general.Preferences;
 import com.mnnyang.starmusic.util.general.ScreenUtils;
 import com.mnnyang.starmusic.util.image.BitmapLoader;
 import com.mnnyang.starmusic.util.image.ImageResizer;
-import com.mnnyang.starmusic.view.view.PlayBarState;
+import com.mnnyang.starmusic.view.widght.PlayBarState;
 
 import static com.mnnyang.starmusic.api.Constants.KEY_PLAY_MDOE;
 
-/**
- *
- */
+
 @BindLayout(R.layout.activity_main)
 public class MainActivity extends BaseActivity implements View.OnClickListener, PlayerListener,
         NavigationView.OnNavigationItemSelectedListener, PlayBarState {
@@ -92,17 +88,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     private LocalFragment localFragment;
     private OnlineFragment onlineFragment;
+    private PlayerFragment playerFragment;
+    /**
+     * 点击菜单为夜间模式切换
+     */
     private boolean isClickNavActionNight;
+    /**
+     * 是否打开了播放界面
+     */
+    private boolean playerFragmentVisible;
 
     @Override
     protected void initWindow() {
         initNightMode();
         ScreenUtils.setSystemBarTransparent(this);
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -313,12 +312,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     /**
-     * 是否打开了播放界面
-     */
-    private boolean playerFragmentVisible;
-    private PlayerFragment playerFragment;
-
-    /**
      * 打开播放界面
      */
     public void openPlayerFragment() {
@@ -351,6 +344,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public void onStartPlay(Music currentMusic, int currentPlayingPosition) {
         LogUtils.i(this, "start play");
         updatePlayBar(currentMusic, true);
+
+        openBar();
         if (playerFragment != null) {
             playerFragment.onStartPlay(currentMusic, currentPlayingPosition);
         }
@@ -452,9 +447,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     boolean isScrolling = false;
 
     @Override
-    public void closeBar() {
+    public void hideBar() {
         if (isClose != State.CLOSE && !isScrolling) {
-            LogUtils.d(this, "closeBar");
+            LogUtils.d(this, "hideBar");
             isScrolling = true;
             llBottom.animate().translationY(flPlayBarRoot.getMeasuredHeight())
                     .setDuration(200)

@@ -24,7 +24,7 @@
             android:background="?attr/colorPrimary"
             android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:navigationIcon="@mipmap/ic_menu"
+            app:navigationIcon="@drawable/ic_menu_white_24dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="我的音乐"/>
 
@@ -32,7 +32,7 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabGravity="center"
+            app:tabGravity="fill"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="#ffffff"
             app:tabTextColor="#88ffffff"/>

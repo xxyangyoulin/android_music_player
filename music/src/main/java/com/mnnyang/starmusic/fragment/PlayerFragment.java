@@ -34,7 +34,7 @@ import com.mnnyang.starmusic.util.http.HttpCallback;
 import com.mnnyang.starmusic.util.http.HttpUtils;
 import com.mnnyang.starmusic.util.image.BitmapLoader;
 import com.mnnyang.starmusic.util.image.GlideUtils;
-import com.mnnyang.starmusic.view.view.LyricView;
+import com.mnnyang.starmusic.view.widght.LyricView;
 
 import java.io.File;
 import java.util.regex.Matcher;

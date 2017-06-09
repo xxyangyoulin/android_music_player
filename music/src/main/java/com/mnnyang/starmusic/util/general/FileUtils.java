@@ -1,7 +1,10 @@
 package com.mnnyang.starmusic.util.general;
 
 import android.content.Context;
+import android.media.MediaScannerConnection;
 import android.os.Environment;
+
+import com.mnnyang.starmusic.app.Cache;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -18,6 +21,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class FileUtils {
     public static final String LRC_PATH = Environment.getExternalStorageDirectory() + "/oomusic/lrc";
+    public static final String DOWNLOAD_PATH = Environment.getExternalStorageDirectory() + "/oomusic/song";
 
     private FileUtils() {
     }
@@ -181,5 +185,13 @@ public class FileUtils {
     public static File getSplashDir(Context context) {
         String splashPath = context.getFilesDir() + "/splash";
         return createDir(splashPath);
+    }
+
+    /**
+     * 通知系统更新媒体库
+     */
+    public static void notifyMediaFile() {
+        MediaScannerConnection.scanFile(Cache.getContext(),
+                new String[]{DOWNLOAD_PATH}, null, null);
     }
 }

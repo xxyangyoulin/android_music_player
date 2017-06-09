@@ -6,9 +6,9 @@
     android:layout_height="wrap_content"
     android:background="@color/color_sheet_dialog_bg"
     android:orientation="vertical"
-    app:divider="@drawable/shape_divider_line"
     app:dividerPadding="50dp"
     app:showDividers="middle">
+    <!--app:divider="@drawable/shape_divider_line"-->
 
     <TextView
         android:id="@+id/tv_sheet_title"
@@ -23,50 +23,50 @@
     <TextView
         android:id="@+id/tv_sheet_next_play"
         style="@style/sheetStyle"
-        android:drawableLeft="@drawable/wyy_next_play"
+        android:drawableLeft="@drawable/ic_slow_motion_video_black_24dp"
         android:text="下一首播放"
         android:textStyle=""/>
 
     <TextView
         android:id="@+id/tv_sheet_share"
         style="@style/sheetStyle"
-        android:drawableLeft="@drawable/wyy_share"
+        android:drawableLeft="@drawable/ic_share_black_24dp"
         android:text="分享"/>
 
     <TextView
         android:id="@+id/tv_sheet_download"
         style="@style/sheetStyle"
-        android:drawableLeft="@drawable/wyy_download"
+        android:drawableLeft="@drawable/ic_file_download_black_24dp"
         android:text="@string/text_download"/>
 
     <TextView
         android:id="@+id/tv_sheet_artist"
         style="@style/sheetStyle"
-        android:drawableLeft="@drawable/wyy_artist"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
         android:text="歌手："/>
 
     <TextView
         android:id="@+id/tv_sheet_album"
         style="@style/sheetStyle"
-        android:drawableLeft="@drawable/wyy_album"
+        android:drawableLeft="@drawable/ic_album_black_24dp"
         android:text="专辑："/>
 
 
     <TextView
         android:id="@+id/tv_sheet_bell"
         style="@style/sheetStyle"
-        android:drawableLeft="@drawable/wyy_bell"
+        android:drawableLeft="@drawable/ic_notifications_black_24dp"
         android:text="@string/text_set_bell"/>
 
     <TextView
         android:id="@+id/tv_sheet_info"
         style="@style/sheetStyle"
-        android:drawableLeft="@drawable/wyy_info"
+        android:drawableLeft="@drawable/ic_insert_drive_file_black_24dp"
         android:text="@string/text_song_info"/>
 
     <TextView
         android:id="@+id/tv_sheet_del"
         style="@style/sheetStyle"
-        android:drawableLeft="@drawable/wyy_del"
+        android:drawableLeft="@drawable/ic_delete_black_24dp"
         android:text="@string/text_del"/>
 </android.support.v7.widget.LinearLayoutCompat>

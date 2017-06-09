@@ -5,8 +5,8 @@
     android:id="@+id/iv_item_more"
     android:layout_width="@dimen/margin_40dp"
     android:layout_height="match_parent"
+    android:scaleType="center"
     android:background="?android:attr/selectableItemBackground"
-    android:paddingLeft="@dimen/margin_10dp"
-    android:paddingRight="@dimen/margin_16dp"
-    android:src="@mipmap/ic_music_list_icon_more"
+    android:tint="@color/gray_66"
+    android:src="@drawable/ic_more_vert_white_24dp"
     tools:showIn="@layout/adapter_search_list"/>

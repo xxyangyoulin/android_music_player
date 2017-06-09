@@ -22,7 +22,7 @@ import com.mnnyang.starmusic.util.general.ToastUtils;
 import com.mnnyang.starmusic.adapter.LocalAdapter;
 import com.mnnyang.starmusic.adapter.RecyclerBaseAdapter;
 import com.mnnyang.starmusic.interfaces.BaseFragment;
-import com.mnnyang.starmusic.view.view.PlayBarState;
+import com.mnnyang.starmusic.view.widght.PlayBarState;
 
 /**
  * Created by mnnyang on 17-4-12.
@@ -71,7 +71,6 @@ public class LocalFragment extends BaseFragment implements
 
     @Override
     public void initListener() {
-
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -79,7 +78,7 @@ public class LocalFragment extends BaseFragment implements
                 System.out.println(dy);
                 dyTotal += dy;
                 if (dyTotal > 10) {
-                    ((PlayBarState) activity).closeBar();
+                    ((PlayBarState) activity).hideBar();
                     dyTotal = 0;
                 } else if (dyTotal < -10) {
                     ((PlayBarState) activity).openBar();

@@ -20,6 +20,7 @@ import com.mnnyang.starmusic.R;
 import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.Music;
 import com.mnnyang.starmusic.bean.PlaySongInfo;
+import com.mnnyang.starmusic.util.general.FileUtils;
 import com.mnnyang.starmusic.util.general.LogUtils;
 import com.mnnyang.starmusic.util.general.ToastUtils;
 import com.mnnyang.starmusic.util.http.HttpCallback;
@@ -190,7 +191,26 @@ public class MoreOperHelper implements View.OnClickListener {
     }
 
     private void download() {
+        if (music == null){
+            LogUtils.e(this, "download music is null");
+            return;
+        }
         //TODO 开始下载
+        ToastUtils.show("开始下载: "+music.getTitle());
+        HttpUtils.downMusicById(music.getId() + "", new HttpCallback<File>() {
+            @Override
+            public void onSuccess(File file) {
+                if (file.exists()){
+                    ToastUtils.show(music.getTitle()+"下载完毕!");
+                    FileUtils.notifyMediaFile();
+                }
+            }
+
+            @Override
+            public void onFail(Exception e) {
+                ToastUtils.show(music.getTitle()+"下载失败!");
+            }
+        });
     }
 
     private void share() {

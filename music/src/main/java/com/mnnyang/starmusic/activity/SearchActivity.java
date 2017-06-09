@@ -92,7 +92,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             Field field = searchView.getClass().getDeclaredField("mGoButton");
             field.setAccessible(true);
             ImageView goButton = (ImageView) field.get(searchView);
-            goButton.setImageResource(R.mipmap.ic_menu_search);
+            goButton.setImageResource(R.drawable.ic_search_white_24dp);
 
         } catch (Exception e) {
             e.printStackTrace();
