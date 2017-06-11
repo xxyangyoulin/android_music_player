@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import com.mnnyang.starmusic.R;
 import com.mnnyang.starmusic.util.binding.BindLayout;
 import com.mnnyang.starmusic.fragment.SettingFragment;
-import com.mnnyang.starmusic.interfaces.BaseActivity;
 
 /**
  * Created by mnnyang on 17-4-19.

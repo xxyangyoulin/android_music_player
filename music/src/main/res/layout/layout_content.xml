@@ -9,14 +9,11 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/appbar_layout"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-        <!--
-        contentScrim:       折叠后ToolBar有背景颜色覆盖下面
-        layout_scrollFlags: 响应滑动
-        -->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -32,8 +29,6 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabGravity="fill"
-            app:tabMode="scrollable"
             app:tabSelectedTextColor="#ffffff"
             app:tabTextColor="#88ffffff"/>
 

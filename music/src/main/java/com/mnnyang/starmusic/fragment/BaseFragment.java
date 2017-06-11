@@ -1,4 +1,4 @@
-package com.mnnyang.starmusic.interfaces;
+package com.mnnyang.starmusic.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mnnyang.starmusic.interfaces.Operation;
 import com.mnnyang.starmusic.util.binding.Binder;
 import com.mnnyang.starmusic.util.general.LogUtils;
 
@@ -17,7 +18,7 @@ import com.mnnyang.starmusic.util.general.LogUtils;
  */
 
 public abstract class BaseFragment extends Fragment implements Operation {
-    View rootView;
+    protected View rootView;
     protected Activity activity;
 
     @Nullable
@@ -28,21 +29,14 @@ public abstract class BaseFragment extends Fragment implements Operation {
         rootView = inflater.inflate(getLayout(), container, false);
         Binder.bind(this, rootView);
         initView();
-        initListener();
         return rootView;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        initData();
         LogUtils.i(this, "onViewCreated");
-    }
-
-    //第一次还是要在resume里面判断
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        LogUtils.d(this, "onHiddenChanged" + hidden);
-        super.onHiddenChanged(hidden);
+        initData();
+        initListener();
     }
 
     protected abstract int getLayout();

@@ -26,7 +26,7 @@ import com.mnnyang.starmusic.util.general.LogUtils;
 import com.mnnyang.starmusic.util.general.Preferences;
 import com.mnnyang.starmusic.util.image.BitmapLoader;
 import com.mnnyang.starmusic.activity.MainActivity;
-import com.mnnyang.starmusic.interfaces.BaseActivity;
+import com.mnnyang.starmusic.activity.BaseActivity;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 

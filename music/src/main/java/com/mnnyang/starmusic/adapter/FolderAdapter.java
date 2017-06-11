@@ -15,19 +15,19 @@ import java.util.List;
  * Created by mnnyang on 17-4-29.
  */
 
-public class ArtistAdater extends MoreAdater<String> {
-    HashMap<String, ArrayList<Music>> arrayListHashMap = Cache.getArtistHashMap();
+public class FolderAdapter extends MoreAdapter<String> {
+    private HashMap<String, ArrayList<Music>> arrayListHashMap = Cache.getFolderHashMap();
 
-    public ArtistAdater(@LayoutRes int itemLayoutId, @NonNull List<String> data) {
+    public FolderAdapter(@LayoutRes int itemLayoutId, @NonNull List<String> data) {
         super(itemLayoutId, data);
     }
 
     @Override
     protected void convert(ViewHolder holder, int position) {
-        String artist = data.get(position);
-        int musicCount = arrayListHashMap.get(artist).size();
+        String folderName = data.get(position);
+        int musicCount = arrayListHashMap.get(folderName).size();
 
-        holder.setText(R.id.tv_title, artist);
+        holder.setText(R.id.tv_title, folderName);
         holder.setText(R.id.tv_second_title, musicCount + " 首歌曲");
     }
 }

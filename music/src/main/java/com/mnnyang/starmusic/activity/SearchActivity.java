@@ -23,7 +23,6 @@ import com.mnnyang.starmusic.util.general.LogUtils;
 import com.mnnyang.starmusic.util.http.HttpCallback;
 import com.mnnyang.starmusic.util.http.HttpUtils;
 import com.mnnyang.starmusic.adapter.SearchAdapter;
-import com.mnnyang.starmusic.interfaces.BaseActivity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

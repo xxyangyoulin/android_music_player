@@ -34,7 +34,7 @@ public class LocalAdapter extends RecyclerBaseAdapter<Music> {
         Music music = Cache.getMusicList().get(position);
 
         holder.setText(R.id.tv_title, music.getTitle());
-        holder.setText(R.id.tv_artist, music.getArtist());
+        holder.setText(R.id.tv_artist, music.getArtist()+" - "+music.getAlbum());
 
         holder.setImageBitmap(R.id.iv_album, BitmapUtils.createCircleImage(
                 BitmapLoader.newInstance().loadAlbumBitmap(music.getAlbumPath())));

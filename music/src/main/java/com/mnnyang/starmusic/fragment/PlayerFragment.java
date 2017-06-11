@@ -21,7 +21,6 @@ import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.Lrc;
 import com.mnnyang.starmusic.bean.Music;
 import com.mnnyang.starmusic.bean.SearchMusic;
-import com.mnnyang.starmusic.interfaces.BaseFragment;
 import com.mnnyang.starmusic.service.PlayerListener;
 import com.mnnyang.starmusic.util.LrcUtils;
 import com.mnnyang.starmusic.util.binding.BindView;
@@ -64,14 +63,6 @@ public class PlayerFragment extends BaseFragment implements PlayerListener, View
     @BindView(R.id.sb_player_seek_bar)
     SeekBar seekBar;
 
-//    @BindView(R.id.ui_seekbar)
-//    net.qiujuer.genius.ui.widget.SeekBar uiSeekbar;
-
-    /*@BindView(R.id.tv_total_time)
-    TextView tvTotalTime;
-    @BindView(R.id.tv_progress_time)
-    TextView tvProgressTime;*/
-
     @BindView(R.id.iv_player_play_mode)
     ImageView ivPlayMode;
     @BindView(R.id.fab_play)
@@ -86,7 +77,6 @@ public class PlayerFragment extends BaseFragment implements PlayerListener, View
 
     @BindView(R.id.lyric_view)
     LyricView lyricView;
-//    LV LV;
 
     private AlphaAnimation showAlphaAnimation;
     private AlphaAnimation hideAlphaAnimation;

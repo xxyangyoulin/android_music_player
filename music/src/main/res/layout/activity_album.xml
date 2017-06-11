@@ -92,13 +92,12 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_play"
+        android:id="@+id/fab_shuffle"
         android:layout_width="@dimen/margin_56dp"
         android:layout_height="@dimen/margin_56dp"
         android:layout_marginRight="@dimen/margin_16dp"
-        android:src="@drawable/selector_player_play_pause"
+        android:src="@drawable/ic_shuffle_white_24dp"
         app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="end|bottom"
-        tools:src="@drawable/ic_play_arrow_white_48dp"/>
+        app:layout_anchorGravity="end|bottom"/>
 
 </android.support.design.widget.CoordinatorLayout>

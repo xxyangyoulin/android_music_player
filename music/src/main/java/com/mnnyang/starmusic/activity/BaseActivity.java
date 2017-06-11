@@ -1,4 +1,4 @@
-package com.mnnyang.starmusic.interfaces;
+package com.mnnyang.starmusic.activity;
 
 import android.content.Intent;
 import android.media.AudioManager;
@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.mnnyang.starmusic.R;
 import com.mnnyang.starmusic.api.Constants;
 import com.mnnyang.starmusic.app.Cache;
+import com.mnnyang.starmusic.interfaces.Operation;
 import com.mnnyang.starmusic.util.binding.Binder;
 import com.mnnyang.starmusic.util.general.LogUtils;
 import com.mnnyang.starmusic.util.general.Preferences;
@@ -48,8 +49,8 @@ public abstract class BaseActivity extends AppCompatActivity implements Operatio
 
         Binder.bind(this);
         initView();
-        initListener();
         initData();
+        initListener();
 
         Cache.addActivity(this);
 

@@ -13,8 +13,8 @@ import java.util.List;
  * Created by mnnyang on 17-4-29.
  */
 
-public abstract class MoreAdater<T> extends RecyclerBaseAdapter<T> {
-    public MoreAdater(@LayoutRes int itemLayoutId, @NonNull List<T> data) {
+public abstract class MoreAdapter<T> extends RecyclerBaseAdapter<T> {
+    public MoreAdapter(@LayoutRes int itemLayoutId, @NonNull List<T> data) {
         super(itemLayoutId, data);
     }
 
@@ -31,12 +31,12 @@ public abstract class MoreAdater<T> extends RecyclerBaseAdapter<T> {
         });
     }
 
-    public MoreAdater setMoreClickListener(MoreAdater.ItemMoreClickListener itemMoreClickListener) {
+    public MoreAdapter setMoreClickListener(MoreAdapter.ItemMoreClickListener itemMoreClickListener) {
         this.itemMoreClickListener = itemMoreClickListener;
         return this;
     }
 
-    private MoreAdater.ItemMoreClickListener itemMoreClickListener;
+    private MoreAdapter.ItemMoreClickListener itemMoreClickListener;
 
     public interface ItemMoreClickListener {
         void onMoreClick(View view, int position);

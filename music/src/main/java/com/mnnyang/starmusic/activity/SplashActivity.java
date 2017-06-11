@@ -7,8 +7,7 @@ import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
 import com.mnnyang.starmusic.R;
-import com.mnnyang.starmusic.interfaces.BaseActivity;
-import com.mnnyang.starmusic.interfaces.ISplashView;
+import com.mnnyang.starmusic.view.base.ISplashView;
 import com.mnnyang.starmusic.presenter.SplashPresenter;
 import com.mnnyang.starmusic.service.PlayService;
 import com.mnnyang.starmusic.util.binding.BindLayout;

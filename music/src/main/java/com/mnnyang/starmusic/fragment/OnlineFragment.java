@@ -7,14 +7,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.mnnyang.starmusic.R;
+import com.mnnyang.starmusic.activity.OnlineActivity;
+import com.mnnyang.starmusic.adapter.OnlineListAdapter;
+import com.mnnyang.starmusic.adapter.RecyclerBaseAdapter;
 import com.mnnyang.starmusic.api.Constants;
 import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.TopListInfo;
 import com.mnnyang.starmusic.util.binding.BindView;
-import com.mnnyang.starmusic.activity.OnlineActivity;
-import com.mnnyang.starmusic.adapter.OnlineListAdapter;
-import com.mnnyang.starmusic.adapter.RecyclerBaseAdapter;
-import com.mnnyang.starmusic.interfaces.BaseFragment;
 
 import java.util.List;
 
@@ -23,9 +22,7 @@ import java.util.List;
  * Created by mnnyang on 17-4-12.
  */
 
-public class OnlineFragment extends BaseFragment {
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+public class OnlineFragment extends PagerFragment {
     @BindView(R.id.ll_loading)
     LinearLayout llLoadingStatus;
     @BindView(R.id.ll_load_fail)
@@ -39,16 +36,8 @@ public class OnlineFragment extends BaseFragment {
     }
 
     @Override
-    public void initView() {
-        super.initView();
-    }
-
-    @Override
-    public void initListener() {
-    }
-
-    @Override
     public void initData() {
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         topListInfos = Cache.getMusicTopList();

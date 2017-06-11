@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -30,10 +31,10 @@ import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.Music;
 import com.mnnyang.starmusic.fragment.AlbumFragment;
 import com.mnnyang.starmusic.fragment.ArtistFragment;
+import com.mnnyang.starmusic.fragment.FolderFragment;
 import com.mnnyang.starmusic.fragment.LocalFragment;
 import com.mnnyang.starmusic.fragment.OnlineFragment;
 import com.mnnyang.starmusic.fragment.PlayerFragment;
-import com.mnnyang.starmusic.interfaces.BaseActivity;
 import com.mnnyang.starmusic.service.PlayService;
 import com.mnnyang.starmusic.service.PlayerListener;
 import com.mnnyang.starmusic.util.SystemUtils;
@@ -44,6 +45,7 @@ import com.mnnyang.starmusic.util.general.Preferences;
 import com.mnnyang.starmusic.util.general.ScreenUtils;
 import com.mnnyang.starmusic.util.image.BitmapLoader;
 import com.mnnyang.starmusic.util.image.ImageResizer;
+import com.mnnyang.starmusic.util.rely.AppBarStateChangeListener;
 import com.mnnyang.starmusic.view.widght.PlayBarState;
 
 import static com.mnnyang.starmusic.api.Constants.KEY_PLAY_MDOE;
@@ -57,6 +59,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @BindView(R.id.navigation_view)
     NavigationView navigationView;
 
+    @BindView(R.id.appbar_layout)
+    AppBarLayout appBarLayout;
     @BindView(R.id.tab_layout)
     TabLayout tabLayout;
 
@@ -97,6 +101,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
      * 是否打开了播放界面
      */
     private boolean playerFragmentVisible;
+    private int progressBarHeight;
 
     @Override
     protected void initWindow() {
@@ -163,20 +168,37 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 }
             }
         });
+        appBarLayout.addOnOffsetChangedListener(new AppBarStateChangeListener() {
+            @Override
+            public void onStateChanged(AppBarLayout appBarLayout, int state) {
+                switch (state) {
+                    case EXPANDED:
+                        showBar();
+                        break;
+                    case COLLAPSED:
+                        hideBar();
+                        break;
+                }
+            }
+        });
     }
 
     @Override
     public void initData() {
+        progressBarHeight = (int) getResources().getDimensionPixelSize(R.dimen.play_bar_height);
+
         HomeAdapter homeAdapter = new HomeAdapter(getSupportFragmentManager());
         onlineFragment = new OnlineFragment();
         localFragment = new LocalFragment();
 
         ArtistFragment artistFragment = new ArtistFragment();
         AlbumFragment albumFragment = new AlbumFragment();
+        FolderFragment folderFragment = new FolderFragment();
 
         homeAdapter.addFragment(albumFragment);
         homeAdapter.addFragment(localFragment);
         homeAdapter.addFragment(artistFragment);
+        homeAdapter.addFragment(folderFragment);
         homeAdapter.addFragment(onlineFragment);
 
         viewPager.setAdapter(homeAdapter);
@@ -345,7 +367,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         LogUtils.i(this, "start play");
         updatePlayBar(currentMusic, true);
 
-        openBar();
+        showBar();
         if (playerFragment != null) {
             playerFragment.onStartPlay(currentMusic, currentPlayingPosition);
         }
@@ -451,7 +473,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         if (isClose != State.CLOSE && !isScrolling) {
             LogUtils.d(this, "hideBar");
             isScrolling = true;
-            llBottom.animate().translationY(flPlayBarRoot.getMeasuredHeight())
+            llBottom.animate().translationY(flPlayBarRoot.getMeasuredHeight() - ScreenUtils.dp2px(4))
                     .setDuration(200)
                     .setListener(new AnimatorListenerAdapter() {
                         @Override
@@ -465,9 +487,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     @Override
-    public void openBar() {
+    public void showBar() {
         if (isClose == State.CLOSE && !isScrolling) {
-            LogUtils.d(this, "openBar");
+            LogUtils.d(this, "showBar");
             isScrolling = true;
             llBottom.animate().translationY(0)
                     .setDuration(200)

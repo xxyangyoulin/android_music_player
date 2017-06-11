@@ -10,7 +10,7 @@ import com.mnnyang.starmusic.util.MusicScanUtils;
 import com.mnnyang.starmusic.util.general.LogUtils;
 import com.mnnyang.starmusic.activity.MainActivity;
 import com.mnnyang.starmusic.activity.SplashActivity;
-import com.mnnyang.starmusic.interfaces.ISplashView;
+import com.mnnyang.starmusic.view.base.ISplashView;
 
 /**
  * Created by mnnyang on 17-4-12.

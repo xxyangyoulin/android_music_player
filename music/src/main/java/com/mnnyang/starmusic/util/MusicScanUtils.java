@@ -145,8 +145,8 @@ public class MusicScanUtils {
     }
 
     private void initDir(List<Music> musics) {
-        HashMap<String, ArrayList<Music>> dirHashMap = Cache.getDirHashMap();
-        ArrayList<String> dirs = Cache.getDirKeys();
+        HashMap<String, ArrayList<Music>> dirHashMap = Cache.getFolderHashMap();
+        ArrayList<String> dirs = Cache.getFolderKeys();
 
         for (Music music : musics) {
             String path = music.getPath();

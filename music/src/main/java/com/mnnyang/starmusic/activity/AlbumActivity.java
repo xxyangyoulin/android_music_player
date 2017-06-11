@@ -21,18 +21,18 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.mnnyang.starmusic.R;
-import com.mnnyang.starmusic.adapter.MoreAdater;
+import com.mnnyang.starmusic.adapter.MoreAdapter;
 import com.mnnyang.starmusic.adapter.RecyclerBaseAdapter;
 import com.mnnyang.starmusic.api.Constants;
 import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.Music;
+import com.mnnyang.starmusic.util.general.LogUtils;
 import com.mnnyang.starmusic.util.helper.StatusHelper;
 import com.mnnyang.starmusic.util.binding.BindLayout;
 import com.mnnyang.starmusic.util.binding.BindView;
 import com.mnnyang.starmusic.util.general.ScreenUtils;
 import com.mnnyang.starmusic.util.general.ToastUtils;
 import com.mnnyang.starmusic.util.image.BitmapLoader;
-import com.mnnyang.starmusic.interfaces.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,14 +42,14 @@ import java.util.List;
  */
 
 @BindLayout(R.layout.activity_album)
-public class AlbumActivity extends BaseActivity implements RecyclerBaseAdapter.ItemClickListener, MoreAdater.ItemMoreClickListener {
+public class AlbumActivity extends BaseActivity implements RecyclerBaseAdapter.ItemClickListener, MoreAdapter.ItemMoreClickListener, View.OnClickListener {
     @BindView(R.id.iv_album)
     ImageView ivAlbum;
     @BindView(R.id.iv_album_bg)
     ImageView ivAlbumBg;
 
-    @BindView(R.id.fab_play)
-    FloatingActionButton fabPlay;
+    @BindView(R.id.fab_shuffle)
+    FloatingActionButton fabShuffle;
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -62,6 +62,7 @@ public class AlbumActivity extends BaseActivity implements RecyclerBaseAdapter.I
     private ArrayList<Music> musics;
     private ArrayList<Music> musicArrayList = new ArrayList<>();
     private MusicAdapter musicAdapter;
+    private String mAlbum;
 
     @Override
     protected void initWindow() {
@@ -72,28 +73,48 @@ public class AlbumActivity extends BaseActivity implements RecyclerBaseAdapter.I
     @Override
     public void initView() {
         super.initView();
+        mAlbum = parseIntent();
+        initTitle(mAlbum);
+    }
 
-        Intent intent = getIntent();
-        String album = intent.getStringExtra(Constants.INTENT_ALBUM);
-
-        initRecyclerView(album);
-        initTitle(album);
-        musics = Cache.getAlbumHashMap().get(album);
-
+    @Override
+    public void initData() {
+        initRecyclerView(mAlbum);
+        musics = Cache.getAlbumHashMap().get(mAlbum);
         Glide.with(this).load(musics.get(0).getAlbumPath()).into(ivAlbum);
-
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setupEnterAnimation();
         }
     }
 
-    private void initRecyclerView(String album) {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    @Override
+    public void initListener() {
+        musicAdapter.setItemClickListener(this);
+        musicAdapter.setMoreClickListener(this);
+        fabShuffle.setOnClickListener(this);
+    }
 
+    /**
+     * 解析intent
+     */
+    private String parseIntent() {
+        Intent intent = getIntent();
+        return intent.getStringExtra(Constants.INTENT_ALBUM);
+    }
+
+    private void initTitle(String album) {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(album);
+        }
+    }
+
+    private void initRecyclerView(String album) {
         musicArrayList.addAll(Cache.getAlbumHashMap().get(album));
         initStatus();
 
         musicAdapter = new MusicAdapter(R.layout.adapter_local_item, musicArrayList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(musicAdapter);
     }
 
@@ -106,19 +127,6 @@ public class AlbumActivity extends BaseActivity implements RecyclerBaseAdapter.I
         }
     }
 
-
-    private void initTitle(String album) {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle(album);
-        }
-    }
-
-    @Override
-    public void initListener() {
-        musicAdapter.setItemClickListener(this);
-        musicAdapter.setMoreClickListener(this);
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setupEnterAnimation() {
@@ -177,7 +185,10 @@ public class AlbumActivity extends BaseActivity implements RecyclerBaseAdapter.I
 
     @Override
     public void onItemClick(View view, RecyclerBaseAdapter.ViewHolder holder) {
-        Cache.getPlayService().play(musicArrayList.get(holder.getAdapterPosition()));
+        int position = holder.getAdapterPosition();
+        Cache.getPlayService().play(musicArrayList.get(position));
+        musicAdapter.setPlayingPosition(position);
+        musicAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -190,9 +201,24 @@ public class AlbumActivity extends BaseActivity implements RecyclerBaseAdapter.I
         ToastUtils.show("更多");
     }
 
-    private class MusicAdapter extends MoreAdater<Music> {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.fab_shuffle:
+                fabShuffleClick();
+                break;
+        }
+    }
 
-        public MusicAdapter(@LayoutRes int itemLayoutId, @NonNull List<Music> data) {
+    private void fabShuffleClick() {
+
+    }
+
+    private class MusicAdapter extends MoreAdapter<Music> {
+        int playingPosition = -1;
+        boolean isFirstInit = true;
+
+        MusicAdapter(@LayoutRes int itemLayoutId, @NonNull List<Music> data) {
             super(itemLayoutId, data);
         }
 
@@ -202,11 +228,30 @@ public class AlbumActivity extends BaseActivity implements RecyclerBaseAdapter.I
             holder.setText(R.id.tv_title, getData().get(position).getTitle());
             holder.setText(R.id.tv_artist, getData().get(position).getArtist());
 
-            if (Cache.getPlayService().isPlaying()) {
+            if (isFirstInit && Cache.getPlayService().isPlaying()) {
+                LogUtils.e(this, "init");
+                Music music = Cache.getPlayService().getPlayingMusic();
+                boolean isCurrentPlaying = musicArrayList.get(position).getId() == music.getId();
+                LogUtils.e(this, isCurrentPlaying+"");
                 holder.getView(R.id.iv_playing).setVisibility(
-                        musicArrayList.get(position) == Cache.getPlayService().getPlayingMusic() ?
-                                View.VISIBLE : View.INVISIBLE);
+                        isCurrentPlaying ? View.VISIBLE : View.INVISIBLE);
+
+                if (isCurrentPlaying) {
+                    playingPosition = position;
+                }
+                isFirstInit = false;
+
+            } else {
+                LogUtils.e(this, "no init");
+                holder.getView(R.id.iv_playing).setVisibility(
+                        position == playingPosition ? View.VISIBLE : View.INVISIBLE);
             }
         }
+
+        MusicAdapter setPlayingPosition(int playingPosition) {
+            this.playingPosition = playingPosition;
+            return this;
+        }
+
     }
 }

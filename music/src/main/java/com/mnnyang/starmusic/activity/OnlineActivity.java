@@ -27,7 +27,6 @@ import com.mnnyang.starmusic.util.http.HttpCallback;
 import com.mnnyang.starmusic.util.http.HttpUtils;
 import com.mnnyang.starmusic.adapter.OnlineMusicAdapter;
 import com.mnnyang.starmusic.adapter.RecyclerBaseAdapter;
-import com.mnnyang.starmusic.interfaces.BaseActivity;
 import com.mnnyang.starmusic.util.rely.BlurBitmapTransformation;
 
 import java.util.ArrayList;

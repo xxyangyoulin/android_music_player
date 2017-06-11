@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.mnnyang.starmusic.R;
 import com.mnnyang.starmusic.app.Cache;
-import com.mnnyang.starmusic.interfaces.BaseFragment;
+import com.mnnyang.starmusic.fragment.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;

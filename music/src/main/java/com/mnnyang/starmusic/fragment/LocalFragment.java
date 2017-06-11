@@ -1,7 +1,5 @@
 package com.mnnyang.starmusic.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,33 +8,29 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mnnyang.starmusic.R;
+import com.mnnyang.starmusic.adapter.LocalAdapter;
+import com.mnnyang.starmusic.adapter.RecyclerBaseAdapter;
 import com.mnnyang.starmusic.api.Constants;
 import com.mnnyang.starmusic.app.Cache;
 import com.mnnyang.starmusic.bean.Music;
-import com.mnnyang.starmusic.util.helper.MoreOperHelper;
-import com.mnnyang.starmusic.util.helper.StatusHelper;
 import com.mnnyang.starmusic.util.binding.BindView;
 import com.mnnyang.starmusic.util.general.LogUtils;
 import com.mnnyang.starmusic.util.general.Preferences;
 import com.mnnyang.starmusic.util.general.ToastUtils;
-import com.mnnyang.starmusic.adapter.LocalAdapter;
-import com.mnnyang.starmusic.adapter.RecyclerBaseAdapter;
-import com.mnnyang.starmusic.interfaces.BaseFragment;
-import com.mnnyang.starmusic.view.widght.PlayBarState;
+import com.mnnyang.starmusic.util.helper.MoreOperHelper;
+import com.mnnyang.starmusic.util.helper.StatusHelper;
 
 /**
  * Created by mnnyang on 17-4-12.
  */
 
-public class LocalFragment extends BaseFragment implements
+public class LocalFragment extends PagerFragment implements
         LocalAdapter.ItemMoreClickListener, RecyclerBaseAdapter.ItemClickListener {
 
     @BindView(R.id.ll_loading)
     LinearLayout llLoading;
     @BindView(R.id.ll_load_fail)
     LinearLayout llLoadFail;
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
 
     private LocalAdapter localAdapter;
 
@@ -46,47 +40,30 @@ public class LocalFragment extends BaseFragment implements
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+    public void initData() {
+        super.initData();
         initRecyclerView();
         initStatus();
     }
 
+    @Override
+    public void initListener() {
+        super.initListener();
+        localAdapter.setMoreClickListener(this);
+        localAdapter.setItemClickListener(this);
+    }
+
     private void initRecyclerView() {
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         localAdapter = new LocalAdapter(R.layout.adapter_local_item, Cache.getMusicList());
         recyclerView.setAdapter(localAdapter);
-        localAdapter.setMoreClickListener(this);
-        localAdapter.setItemClickListener(this);
 
         //读取记录的播放的歌曲,跳转到记录的歌曲的位置
         int recordingPosition = findRecordingPosition();
         localAdapter.setCurrentPosition(recordingPosition);
         recyclerView.scrollToPosition(recordingPosition - 1 < 0 ? 0 : recordingPosition - 1);
-    }
-
-    int dyTotal;
-
-    @Override
-    public void initListener() {
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                System.out.println(dy);
-                dyTotal += dy;
-                if (dyTotal > 10) {
-                    ((PlayBarState) activity).hideBar();
-                    dyTotal = 0;
-                } else if (dyTotal < -10) {
-                    ((PlayBarState) activity).openBar();
-                    dyTotal = 0;
-                }
-            }
-        });
-
     }
 
     /**
@@ -153,7 +130,7 @@ public class LocalFragment extends BaseFragment implements
         if (Cache.getMusicList().isEmpty()) {
             StatusHelper.status(recyclerView, llLoading, llLoadFail, StatusHelper.Status.FAIL);
             TextView tvFailInfo = (TextView) llLoadFail.findViewById(R.id.tv_load_fail_info);
-            tvFailInfo.setText("没有找到歌曲");
+            tvFailInfo.setText("未找到歌曲");
         }
     }
 }

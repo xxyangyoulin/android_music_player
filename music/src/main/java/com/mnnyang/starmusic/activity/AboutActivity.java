@@ -3,7 +3,6 @@ package com.mnnyang.starmusic.activity;
 import android.support.design.widget.FloatingActionButton;
 
 import com.mnnyang.starmusic.R;
-import com.mnnyang.starmusic.interfaces.BaseActivity;
 import com.mnnyang.starmusic.util.binding.BindLayout;
 import com.mnnyang.starmusic.util.binding.BindView;
 

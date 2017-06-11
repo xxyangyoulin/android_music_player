@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * 全局数据缓存
+ * TODO 导致内存占用过大
  * Created by mnnyang on 17-5-5.
  */
 
@@ -109,11 +110,11 @@ public class Cache {
         return newInstance().albumkeys;
     }
 
-    public static HashMap<String, ArrayList<Music>> getDirHashMap() {
+    public static HashMap<String, ArrayList<Music>> getFolderHashMap() {
         return newInstance().dirHashMap;
     }
 
-    public static ArrayList<String> getDirKeys() {
+    public static ArrayList<String> getFolderKeys() {
         return newInstance().dirKeys;
     }
 

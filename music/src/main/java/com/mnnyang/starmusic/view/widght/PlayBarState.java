@@ -9,8 +9,14 @@ public interface PlayBarState {
         CLOSE,OPEN
     }
 
+    /**
+     * 隐藏播放条
+     */
     void hideBar();
 
-    void openBar();
+    /**
+     * 显示播放条
+     */
+    void showBar();
 
 }

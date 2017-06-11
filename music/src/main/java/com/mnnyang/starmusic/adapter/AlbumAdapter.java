@@ -17,10 +17,10 @@ import java.util.List;
  * Created by mnnyang on 17-4-29.
  */
 
-public class AlbumAdater extends MoreAdater<String> {
+public class AlbumAdapter extends MoreAdapter<String> {
     HashMap<String, ArrayList<Music>> albumHashMap = Cache.getAlbumHashMap();
 
-    public AlbumAdater(@LayoutRes int itemLayoutId, @NonNull List<String> data) {
+    public AlbumAdapter(@LayoutRes int itemLayoutId, @NonNull List<String> data) {
         super(itemLayoutId, data);
     }
 
