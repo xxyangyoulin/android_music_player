@@ -17,8 +17,8 @@ import java.util.List;
  * Created by mnnyang on 18-1-13.
  */
 
-public class RequestPermission {
-    private static final String TAG = "RequestPermission";
+public class PermissionRequest {
+    private static final String TAG = "PermissionRequest";
     private static int autoCode;
     private static SparseArray<Callback> callbacks = new SparseArray<>();
 
@@ -33,23 +33,23 @@ public class RequestPermission {
         void onDenied();
     }
 
-    public RequestPermission(@NonNull Activity activity) {
+    public PermissionRequest(@NonNull Activity activity) {
         this.target = activity;
     }
 
-    public RequestPermission(@NonNull Fragment fragment) {
+    public PermissionRequest(@NonNull Fragment fragment) {
         this.target = fragment;
     }
 
-    public static RequestPermission with(@NonNull Activity activity) {
-        return new RequestPermission(activity);
+    public static PermissionRequest with(@NonNull Activity activity) {
+        return new PermissionRequest(activity);
     }
 
-    public static RequestPermission with(@NonNull Fragment fragment) {
-        return new RequestPermission(fragment);
+    public static PermissionRequest with(@NonNull Fragment fragment) {
+        return new PermissionRequest(fragment);
     }
 
-    public RequestPermission permissions(@NonNull String... permissions) {
+    public PermissionRequest permissions(@NonNull String... permissions) {
         this.permissions = permissions;
         return this;
     }

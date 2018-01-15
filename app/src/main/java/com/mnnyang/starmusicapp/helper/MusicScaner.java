@@ -1,9 +1,11 @@
-package com.mnnyang.starmusicapp;
+package com.mnnyang.starmusicapp.helper;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+
+import com.mnnyang.starmusicapp.model.Music;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.mnnyang.starmusicapp;
+package com.mnnyang.starmusicapp.model;
 
 /**
  * 音乐javabean <br>
@@ -6,23 +6,21 @@ package com.mnnyang.starmusicapp;
  */
 
 public class Music {
+    public enum Type {
+        ONLINE, LOCAL
+    }
 
     private long id;
     private long duration;
     private String title;
     private String artist;
-    private String album;
     private String path;
+    private String album;
     private String albumPath;
-    private String albumBigPic;
     private String fileName;
     private long fileSize;
-    //默认是本地音乐
+    /*默认是本地音乐*/
     private Type type = Type.LOCAL;
-
-    public enum Type {
-        ONLINE, LOCAL
-    }
 
     public Type getType() {
         return type;
@@ -111,15 +109,6 @@ public class Music {
 
     public Music setFileSize(long fileSize) {
         this.fileSize = fileSize;
-        return this;
-    }
-
-    public String getAlbumBigPic() {
-        return albumBigPic;
-    }
-
-    public Music setAlbumBigPic(String albumBigPic) {
-        this.albumBigPic = albumBigPic;
         return this;
     }
 
