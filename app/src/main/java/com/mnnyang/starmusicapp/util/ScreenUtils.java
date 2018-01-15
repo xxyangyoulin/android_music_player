@@ -1,4 +1,4 @@
-package com.mnnyang.starmusic.util.general;
+package com.mnnyang.starmusicapp.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -66,10 +66,6 @@ public class ScreenUtils {
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-        //如果布局没有置顶 导致空白问题
-        /* else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }*/
     }
 
     public static int getSHeight() {

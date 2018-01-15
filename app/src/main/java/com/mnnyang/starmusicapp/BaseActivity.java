@@ -1,4 +1,4 @@
-package com.mnnyang.starmusicapp.view;
+package com.mnnyang.starmusicapp;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
