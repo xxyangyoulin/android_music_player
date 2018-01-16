@@ -19,7 +19,13 @@ import com.mnnyang.starmusicapp.R;
  */
 
 public class NavItemView extends FrameLayout {
-
+    /**
+     * 默认不能选中
+     */
+    private boolean selectAble = false;
+    /**
+     * 选中状态
+     */
     private boolean isSelected = false;
     private ImageView ivIcon;
     private TextView tvName;
@@ -36,8 +42,10 @@ public class NavItemView extends FrameLayout {
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.NavItemView);
         Drawable drawable = array.getDrawable(R.styleable.NavItemView_icon);
         String name = array.getString(R.styleable.NavItemView_name);
+        boolean selectable = array.getBoolean(R.styleable.NavItemView_selectAble, false);
         array.recycle();
 
+        setSelectAble(selectable);
         setName(name);
         setIcon(drawable);
     }
@@ -68,12 +76,28 @@ public class NavItemView extends FrameLayout {
     }
 
     public void setSelected(boolean isSelected) {
+
+        if (!selectAble) {
+            setBackgroundColor(0x00000000);
+            return;
+        }
+
         this.isSelected = isSelected;
+
         if (isSelected) {
             setBackgroundColor(0x15000000);
         } else {
             setBackgroundColor(0x00000000);
         }
+    }
+
+    public boolean isSelectAble() {
+        return selectAble;
+    }
+
+    public NavItemView setSelectAble(boolean selectAble) {
+        this.selectAble = selectAble;
+        return this;
     }
 
     @Override

@@ -8,7 +8,7 @@ import android.view.View;
 
 public class StatusHelper {
     public enum Status {
-        SUCCEED, LOADING, FAIL, NO_MORE
+        SUCCEED, LOADING, FAIL
     }
 
     public static void status(View succeed, View loading, View fail, Status status) {

@@ -19,7 +19,7 @@
         <!--使用一个状态栏高度来代替-->
         <View
             android:id="@+id/view_status_bar"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_24dp"/>
 
